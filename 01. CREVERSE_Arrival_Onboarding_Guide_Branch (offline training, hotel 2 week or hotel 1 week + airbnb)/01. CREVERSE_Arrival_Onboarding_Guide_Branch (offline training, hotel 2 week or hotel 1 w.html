@@ -1,0 +1,2618 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>01. CREVERSE_Arrival_Onboarding_Guide_Branch (offline training, hotel 2 week or hotel 1 week + airbnb)</title>
+  <style>
+    :root{
+      --creverse:#00aeb3;
+      --creverse-dark:#087b82;
+      --navy:#16345f;
+      --ink:#162033;
+      --muted:#667085;
+      --bg:#f4f8fb;
+      --card:#ffffff;
+      --line:#d8e7ec;
+      --yellow:#f6b321;
+      --yellow-soft:#fff7df;
+      --red:#d7334c;
+      --red-soft:#fff0f3;
+      --green:#16a06b;
+      --green-soft:#e8f8f0;
+      --blue-soft:#e9f7fb;
+      --shadow:0 8px 24px rgba(16, 42, 67, .08);
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#eef8fb 0%,var(--bg) 42%,#fff 100%);
+      font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      color:var(--ink);
+      line-height:1.48;
+    }
+
+    .app{
+      width:100%;
+      max-width:480px;
+      min-height:100vh;
+      margin:0 auto;
+      background:var(--bg);
+      box-shadow:0 0 0 1px rgba(216,231,236,.55);
+      overflow-x:hidden;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:24px 18px 18px;
+      color:#fff;
+      background:radial-gradient(circle at 12% 12%,rgba(255,255,255,.28),transparent 28%),linear-gradient(135deg,var(--navy) 0%,var(--creverse-dark) 58%,var(--creverse) 100%);
+      border-bottom-left-radius:30px;
+      border-bottom-right-radius:30px;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:180px;
+      height:180px;
+      right:-74px;
+      top:-60px;
+      border:24px solid rgba(255,255,255,.13);
+      border-radius:50%;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      position:relative;
+      z-index:1;
+    }
+
+    .brand img{
+      width:42px;
+      height:42px;
+      object-fit:contain;
+      background:rgba(255,255,255,.96);
+      padding:6px;
+      border-radius:13px;
+    }
+
+    .brand-text{
+      font-size:12px;
+      line-height:1.1;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      opacity:.95;
+    }
+
+    .hero h1{
+      position:relative;
+      z-index:1;
+      margin:22px 0 8px;
+      font-size:31px;
+      line-height:1.05;
+      letter-spacing:-.04em;
+    }
+
+    .hero p{
+      position:relative;
+      z-index:1;
+      margin:0;
+      font-size:14px;
+      opacity:.94;
+      max-width:390px;
+    }
+
+    .updated{
+      position:relative;
+      z-index:1;
+      display:inline-flex;
+      margin-top:14px;
+      padding:7px 10px;
+      border:1px solid rgba(255,255,255,.36);
+      border-radius:999px;
+      background:rgba(255,255,255,.13);
+      font-size:12px;
+      font-weight:800;
+    }
+
+    .content{
+      width:100%;
+      max-width:480px;
+      padding:15px 14px 90px;
+      overflow-x:hidden;
+    }
+
+    .card,
+    details.section{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      margin:13px 0;
+      overflow:hidden;
+      width:100%;
+      max-width:100%;
+      box-sizing:border-box;
+    }
+
+    .card{padding:16px}
+
+    .card h2,
+    details.section summary{
+      color:var(--navy);
+      font-size:19px;
+      line-height:1.15;
+      margin:0;
+    }
+
+    details.section summary{
+      list-style:none;
+      cursor:pointer;
+      padding:16px;
+      font-weight:900;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      min-height:58px;
+    }
+
+    details.section summary::-webkit-details-marker{display:none}
+
+    details.section summary::after{
+      content:"+";
+      flex:0 0 auto;
+      width:26px;
+      height:26px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      background:var(--creverse);
+      font-size:19px;
+      line-height:1;
+    }
+
+    details.section[open] summary::after{content:"–"}
+
+    .inside{
+      padding:0 16px 16px;
+      border-top:1px solid #edf3f6;
+      width:100%;
+      max-width:100%;
+      overflow:hidden;
+    }
+
+    .helper{
+      font-size:13px;
+      color:var(--muted);
+      margin:6px 0 12px;
+    }
+
+    .routes{
+      display:grid;
+      gap:10px;
+    }
+
+    .route-card{
+      position:relative;
+      display:block;
+      border:2px solid var(--line);
+      border-radius:17px;
+      padding:13px 13px 13px 42px;
+      background:#fff;
+      cursor:pointer;
+    }
+
+    .route-card input{
+      position:absolute;
+      left:14px;
+      top:16px;
+      accent-color:var(--creverse);
+    }
+
+    .route-card strong{
+      display:block;
+      color:var(--navy);
+      font-size:15px;
+      margin-bottom:3px;
+    }
+
+    .route-card span{
+      display:block;
+      color:var(--muted);
+      font-size:12.5px;
+    }
+
+    .route-card:has(input:checked){
+      border-color:var(--creverse);
+      background:var(--blue-soft);
+    }
+
+    .route-note{
+      margin-top:12px;
+      padding:12px;
+      border-radius:15px;
+      background:var(--yellow-soft);
+      border:1px solid #f3d681;
+      font-size:13px;
+    }
+
+    .route-note b{color:var(--navy)}
+
+    .quick{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+      margin:8px 0 13px;
+    }
+
+    .quick a{
+      text-decoration:none;
+      color:var(--navy);
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px 10px;
+      font-weight:900;
+      font-size:13px;
+      box-shadow:0 3px 12px rgba(16,42,67,.05);
+    }
+
+    .quick .primary{
+      background:var(--creverse);
+      color:#fff;
+      border-color:var(--creverse);
+    }
+
+    #route{
+      margin-bottom:0;
+    }
+
+    #route + .quick{
+      margin-top:8px;
+    }
+
+    .timeline{
+      position:relative;
+      margin:14px 0 0 8px;
+      padding-left:25px;
+      border-left:4px solid var(--navy);
+    }
+
+    .step{
+      position:relative;
+      margin:0 0 13px;
+      padding:12px;
+      border:1px solid #e2edf2;
+      border-radius:17px;
+      background:#fbfdff;
+    }
+
+    .step::before{
+      content:"";
+      position:absolute;
+      left:-36px;
+      top:16px;
+      width:16px;
+      height:16px;
+      border-radius:50%;
+      background:var(--stage);
+      border:4px solid #fff;
+      box-shadow:0 0 0 2px var(--stage);
+    }
+
+    .stage-tag{
+      display:inline-block;
+      background:var(--stage);
+      color:#fff;
+      border-radius:8px;
+      padding:3px 8px;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+
+    .step h3{
+      font-size:16px;
+      margin:8px 0 4px;
+      color:var(--navy);
+    }
+
+    .step p{
+      font-size:13px;
+      color:var(--muted);
+      margin:0;
+    }
+
+    .checklist{
+      margin:8px 0 0;
+      padding:0;
+      list-style:none;
+      width:100%;
+      max-width:100%;
+      overflow:hidden;
+    }
+
+    .checklist li{
+      display:grid;
+      grid-template-columns:24px minmax(0,1fr);
+      gap:8px;
+      padding:10px 0;
+      border-bottom:1px solid #edf3f6;
+      font-size:14px;
+      width:100%;
+      max-width:100%;
+      min-width:0;
+      box-sizing:border-box;
+      overflow:hidden;
+    }
+
+    .checklist li:last-child{border-bottom:0}
+
+    .check{
+      width:22px;
+      height:22px;
+      border-radius:7px;
+      display:grid;
+      place-items:center;
+      background:var(--creverse);
+      color:#fff;
+      font-weight:900;
+      font-size:13px;
+    }
+
+    .mini-label{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:5px 9px;
+      border-radius:999px;
+      background:var(--blue-soft);
+      color:var(--creverse-dark);
+      font-weight:900;
+      font-size:11.5px;
+      margin:12px 5px 8px 0;
+    }
+
+    .callout{
+      margin:11px 0;
+      padding:12px;
+      border-radius:15px;
+      font-size:13.5px;
+      border-left:6px solid var(--creverse);
+      background:var(--blue-soft);
+    }
+
+    .callout.warning{
+      background:var(--yellow-soft);
+      border-left-color:var(--yellow);
+    }
+
+    .callout.danger{
+      background:var(--red-soft);
+      border-left-color:var(--red);
+    }
+
+    .callout.success{
+      background:var(--green-soft);
+      border-left-color:var(--green);
+    }
+
+    .callout b{color:var(--navy)}
+
+    .address-card{
+      border:2px dashed var(--navy);
+      background:#f9fbff;
+      border-radius:18px;
+      padding:13px;
+      margin:10px 0;
+      width:100%;
+      max-width:100%;
+      min-width:0;
+      overflow-wrap:anywhere;
+      word-break:break-word;
+      box-sizing:border-box;
+    }
+
+    .address-card .kor{
+      display:block;
+      width:100%;
+      max-width:100%;
+      min-width:0;
+      margin:7px 0;
+      color:var(--navy);
+      font-size:15px;
+      line-height:1.35;
+      font-weight:1000;
+      white-space:normal;
+      overflow-wrap:anywhere!important;
+      word-break:break-all!important;
+    }
+
+    .address-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .asset-row{
+      display:grid;
+      grid-template-columns:42px 1fr;
+      gap:10px;
+      align-items:center;
+      margin:11px 0;
+    }
+
+    .icon-bubble{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:var(--blue-soft);
+      display:grid;
+      place-items:center;
+      font-size:22px;
+    }
+
+    .app-icon{
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      object-fit:cover;
+      box-shadow:0 2px 8px rgba(16,42,67,.12);
+    }
+
+    .asset-row strong{
+      display:block;
+      color:var(--navy);
+      font-size:14px;
+    }
+
+    .asset-row span{
+      display:block;
+      color:var(--muted);
+      font-size:12.5px;
+    }
+
+    .photo-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+      margin:12px 0;
+      width:100%;
+      max-width:100%;
+      min-width:0;
+      box-sizing:border-box;
+    }
+
+    .photo-grid.two{grid-template-columns:1fr 1fr}
+
+    .guide-img{
+      width:100%;
+      max-width:100%;
+      height:auto;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:#fff;
+      box-shadow:0 4px 14px rgba(16,42,67,.07);
+      display:block;
+      cursor:zoom-in;
+      box-sizing:border-box;
+    }
+
+    .caption{
+      font-size:11.5px;
+      color:var(--muted);
+      margin:-4px 0 8px;
+    }
+
+    .image-card{
+      margin:12px 0;
+      padding:10px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+      width:100%;
+      max-width:100%;
+      min-width:0;
+      box-sizing:border-box;
+    }
+
+    .image-card strong{
+      display:block;
+      color:var(--navy);
+      font-size:13px;
+      margin-bottom:7px;
+    }
+
+    .zoom-link{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      width:100%;
+      max-width:100%;
+      min-width:0;
+      box-sizing:border-box;
+    }
+
+    .zoom-link:focus .guide-img{
+      outline:3px solid var(--creverse);
+      outline-offset:2px;
+    }
+
+    .modal{
+      display:none;
+      position:fixed;
+      z-index:9999;
+      inset:0;
+      background:rgba(10,20,35,.86);
+      padding:22px;
+    }
+
+    .modal:target{
+      display:grid;
+      place-items:center;
+    }
+
+    .modal img{
+      max-width:100%;
+      max-height:86vh;
+      border-radius:16px;
+      background:#fff;
+    }
+
+    .modal .close{
+      position:fixed;
+      right:18px;
+      top:14px;
+      color:#fff;
+      text-decoration:none;
+      font-size:34px;
+      font-weight:900;
+    }
+
+    .modal .modal-caption{
+      position:fixed;
+      left:18px;
+      right:18px;
+      bottom:16px;
+      color:#fff;
+      text-align:center;
+      font-size:13px;
+    }
+
+    .img-missing{
+      display:none;
+      padding:12px;
+      border-radius:14px;
+      border:1px dashed var(--line);
+      background:#fff;
+      color:var(--muted);
+      font-size:12.5px;
+    }
+
+    .table{
+      width:100%!important;
+      max-width:100%;
+      border-collapse:collapse;
+      margin:10px 0;
+      font-size:13px;
+      overflow:hidden;
+      border-radius:13px;
+      table-layout:fixed!important;
+    }
+
+    .table th{
+      text-align:left;
+      background:var(--navy);
+      color:#fff;
+      padding:9px;
+      font-size:12px;
+    }
+
+    .table td{
+      padding:9px;
+      border-bottom:1px solid #e7eef3;
+      vertical-align:top;
+    }
+
+    .table td:first-child{
+      font-weight:900;
+      color:var(--navy);
+    }
+
+    .table th,
+    .table td{
+      overflow-wrap:anywhere!important;
+      word-break:break-word!important;
+    }
+
+    .sticky{
+      position:fixed;
+      left:50%;
+      bottom:0;
+      transform:translateX(-50%);
+      width:min(480px,100%);
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      padding:10px 14px;
+      background:rgba(244,248,251,.94);
+      backdrop-filter:blur(10px);
+      border-top:1px solid var(--line);
+    }
+
+    .sticky a{
+      text-decoration:none;
+      text-align:center;
+      border-radius:999px;
+      padding:11px 12px;
+      font-weight:900;
+      font-size:13px;
+    }
+
+    .sticky .taxi{
+      background:var(--navy);
+      color:#fff;
+    }
+
+    .sticky .help{
+      background:#fff;
+      color:var(--navy);
+      border:1px solid var(--line);
+    }
+
+    .footer{
+      margin-top:18px;
+      padding:22px 14px 28px;
+      text-align:center;
+      color:#fff;
+      background:var(--navy);
+      border-top-left-radius:26px;
+      border-top-right-radius:26px;
+      font-weight:900;
+    }
+
+    .small{
+      font-size:12.5px;
+      color:var(--muted);
+    }
+
+    .print-note{display:none}
+
+    .image-lightbox{
+      display:none;
+      position:fixed;
+      z-index:10000;
+      inset:0;
+      background:rgba(10,20,35,.88);
+      padding:22px;
+    }
+
+    .image-lightbox.is-open{
+      display:grid;
+      place-items:center;
+    }
+
+    .image-lightbox img{
+      max-width:100%;
+      max-height:86vh;
+      border-radius:16px;
+      background:#fff;
+    }
+
+    .image-lightbox button{
+      position:fixed;
+      right:18px;
+      top:14px;
+      color:#fff;
+      background:transparent;
+      border:0;
+      font-size:34px;
+      font-weight:900;
+      cursor:pointer;
+    }
+
+    .image-lightbox .lightbox-caption{
+      position:fixed;
+      left:18px;
+      right:18px;
+      bottom:16px;
+      color:#fff;
+      text-align:center;
+      font-size:13px;
+    }
+
+    .stage-pre{--section-color:#16345f}
+    .stage-arrival{--section-color:#f6b321}
+    .stage-training{--section-color:#00aeb3}
+    .stage-week2{--section-color:#16a06b}
+
+    .stage-pre .mini-label{border-left:4px solid #16345f}
+    .stage-arrival .mini-label{border-left:4px solid #f6b321}
+    .stage-training .mini-label{border-left:4px solid #00aeb3}
+    .stage-week2 .mini-label{border-left:4px solid #16a06b}
+
+    details.section[class*="stage-"]{
+      border-left:7px solid var(--section-color);
+    }
+
+    details.section[class*="stage-"] summary{
+      background:linear-gradient(90deg,color-mix(in srgb,var(--section-color) 12%,white),#fff 64%);
+    }
+
+    details.section[class*="stage-"] summary::after{
+      background:var(--section-color);
+    }
+
+    details.section[class*="stage-"] .mini-label{
+      background:color-mix(in srgb,var(--section-color) 13%,white);
+      color:var(--section-color);
+    }
+
+    details.section[class*="stage-"] .check{
+      background:var(--section-color);
+    }
+
+    .card.stage-pre,
+    .card.stage-arrival,
+    .card.stage-training,
+    .card.stage-week2{
+      border-left:7px solid var(--section-color);
+    }
+
+    .card.stage-pre h2,
+    .card.stage-arrival h2,
+    .card.stage-training h2,
+    .card.stage-week2 h2{
+      color:var(--section-color);
+    }
+
+    .route-a-only,
+    .route-b-only{
+      display:none;
+    }
+
+    body.route-a .route-a-only{
+      display:block;
+    }
+
+    body.route-b .route-b-only{
+      display:block;
+    }
+
+    body.route-a tr.route-a-only{
+      display:table-row;
+    }
+
+    body.route-b tr.route-b-only{
+      display:table-row;
+    }
+
+    body.route-b .route-a-hide{
+      display:none;
+    }
+
+    .checklist li > span:last-child{
+      min-width:0;
+      max-width:100%;
+      display:block;
+      overflow-wrap:anywhere;
+      word-break:break-word;
+    }
+
+    .checklist li .guide-img{
+      max-width:100%;
+      width:100%;
+      margin-top:10px;
+    }
+
+    a{
+      color:var(--creverse-dark);
+      font-weight:900;
+      text-decoration:none;
+    }
+
+    a:hover{text-decoration:underline}
+
+    .table a{
+      display:inline-block;
+      padding:6px 9px;
+      border-radius:999px;
+      background:var(--blue-soft);
+      border:1px solid var(--line);
+      font-size:12px;
+      white-space:normal;
+    }
+
+    .print-button{
+      appearance:none;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+      color:var(--navy);
+      padding:12px 10px;
+      font-weight:900;
+      font-size:13px;
+      box-shadow:0 3px 12px rgba(16,42,67,.05);
+      cursor:pointer;
+      text-align:left;
+    }
+
+    .print-button:hover{
+      background:var(--blue-soft);
+    }
+
+    .printable-guide{display:none}
+
+    .print-sheet{
+      font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      color:#162033;
+    }
+
+    .print-page{
+      min-height:277mm;
+      position:relative;
+      padding:0;
+    }
+
+    .print-hero-card{
+      background:linear-gradient(135deg,#16345f,#087b82 62%,#00aeb3);
+      color:#fff;
+      border-radius:22px;
+      padding:18px;
+      margin-bottom:10px;
+    }
+
+    .print-brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-size:10px;
+    }
+
+    .print-brand img{
+      width:34px;
+      height:34px;
+      object-fit:contain;
+      background:#fff;
+      border-radius:10px;
+      padding:4px;
+    }
+
+    .print-title{
+      font-size:30px;
+      line-height:1.02;
+      margin:14px 0 6px;
+      font-weight:1000;
+    }
+
+    .print-title span{color:#c8fbff}
+
+    .print-subtitle{
+      font-size:11px;
+      opacity:.94;
+    }
+
+    .print-route-banner{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      border:2px solid #00aeb3;
+      border-radius:18px;
+      background:#e9f7fb;
+      padding:11px;
+      margin:10px 0;
+    }
+
+    .route-letter{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:#00aeb3;
+      color:#fff;
+      display:grid;
+      place-items:center;
+      font-weight:1000;
+      font-size:22px;
+    }
+
+    .print-route-banner strong{
+      display:block;
+      color:#16345f;
+      font-size:14px;
+    }
+
+    .print-route-banner span{
+      display:block;
+      color:#475467;
+      font-size:10.5px;
+    }
+
+    .print-icon-journey{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+      margin:14px 0 18px;
+    }
+
+    .print-icon-stage{text-align:center}
+
+    .print-icon-circle{
+      width:78px;
+      height:78px;
+      margin:0 auto 8px;
+      border-radius:50%;
+      background:#f3f4f6;
+      border:2px solid #d1d5db;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .print-icon-circle svg{
+      width:40px;
+      height:40px;
+      stroke:#374151;
+      stroke-width:1.8;
+      fill:none;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .print-stage-icon-img{
+      width:40px;
+      height:40px;
+      object-fit:contain;
+      display:block;
+    }
+
+    .print-icon-stage .stage-label{
+      font-size:10px;
+      font-weight:800;
+      color:#16345f;
+      margin-bottom:2px;
+    }
+
+    .print-icon-stage .stage-name{
+      font-size:11px;
+      font-weight:900;
+      line-height:1.15;
+      color:#162033;
+    }
+
+    .print-icon-stage .stage-desc{
+      margin-top:4px;
+      font-size:8.8px;
+      line-height:1.25;
+      color:#667085;
+    }
+
+    .print-card-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin:10px 0;
+    }
+
+    .print-visual-card{
+      border:1px solid #d8e7ec;
+      border-left:8px solid var(--pcolor);
+      border-radius:18px;
+      background:#fff;
+      padding:12px;
+      box-shadow:0 2px 10px rgba(16,42,67,.08);
+    }
+
+    .print-visual-card h2{
+      font-size:15px;
+      color:var(--pcolor);
+      margin:0 0 7px;
+    }
+
+    .print-visual-card ul{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:5px;
+    }
+
+    .print-visual-card li,
+    .print-visual-card p{
+      font-size:10px;
+      line-height:1.3;
+      margin:0 0 5px;
+      color:#27364a;
+    }
+
+    .print-visual-card li:before{
+      content:"✓";
+      font-weight:1000;
+      color:var(--pcolor);
+      margin-right:5px;
+    }
+
+    .print-visual-card.compact{min-height:98px}
+
+    .print-taxi-card{
+      border-radius:20px;
+      background:#16345f;
+      color:#fff;
+      padding:14px;
+      margin:11px 0;
+    }
+
+    .taxi-label{
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:10px;
+      font-weight:900;
+      color:#bff8ff;
+    }
+
+    .taxi-korean{
+      font-size:19px;
+      font-weight:1000;
+      margin:7px 0;
+    }
+
+    .taxi-english{
+      font-size:10.5px;
+      opacity:.9;
+    }
+
+    .taxi-notes{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:6px;
+      margin-top:10px;
+    }
+
+    .taxi-notes span{
+      background:rgba(255,255,255,.14);
+      border-radius:999px;
+      padding:6px 8px;
+      font-size:9px;
+      font-weight:800;
+    }
+
+    .bottom-row{margin-top:10px}
+
+    .print-page-title{
+      font-size:25px;
+      color:#16345f;
+      font-weight:1000;
+      border-bottom:5px solid #00aeb3;
+      padding-bottom:8px;
+      margin-bottom:12px;
+    }
+
+    .print-route-steps{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:9px;
+      margin-bottom:12px;
+    }
+
+    .route-step{
+      display:grid;
+      grid-template-columns:34px 1fr;
+      gap:9px;
+      border:1px solid #d8e7ec;
+      border-radius:16px;
+      padding:10px;
+      background:#fff;
+      min-height:66px;
+    }
+
+    .route-step b{
+      width:30px;
+      height:30px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:#00aeb3;
+      color:#fff;
+    }
+
+    .route-step span{
+      font-size:10px;
+      line-height:1.3;
+      color:#27364a;
+    }
+
+    .contact-row{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:7px;
+      border-bottom:1px solid #e7eef3;
+      padding:5px 0;
+      font-size:9.5px;
+    }
+
+    .contact-row strong{color:#27364a}
+    .contact-row span{
+      color:#16345f;
+      font-weight:900;
+    }
+
+    .print-final-card{
+      border-radius:20px;
+      background:#f4f8fb;
+      border:1px solid #d8e7ec;
+      padding:12px;
+      margin-top:10px;
+    }
+
+    .print-final-card h2{
+      margin:0 0 8px;
+      color:#d7334c;
+      font-size:15px;
+    }
+
+    .final-checks{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:6px 10px;
+    }
+
+    .final-checks span{
+      font-size:9.8px;
+      line-height:1.25;
+    }
+
+    .final-checks span:before{
+      content:"✓";
+      font-weight:1000;
+      color:#d7334c;
+      margin-right:5px;
+    }
+
+    .print-footer{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      border-radius:18px;
+      background:#16345f;
+      color:#fff;
+      text-align:center;
+      font-weight:1000;
+      padding:10px;
+    }
+
+    .sub-money-box{
+      margin-top:10px;
+      padding:10px;
+      border-radius:14px;
+      background:#fffdf4;
+      border:1px solid #f3d681;
+    }
+
+    .sub-money-box strong{
+      display:block;
+      color:var(--navy);
+      font-size:12.5px;
+      margin-bottom:6px;
+    }
+
+    .money-summary{
+      display:grid;
+      gap:10px;
+      margin:12px 0;
+    }
+
+    .money-total{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      border-radius:18px;
+      background:linear-gradient(135deg,var(--navy),var(--creverse-dark));
+      color:#fff;
+      padding:14px;
+      box-shadow:0 4px 14px rgba(16,42,67,.10);
+    }
+
+    .money-total span{
+      display:block;
+      font-size:12px;
+      font-weight:800;
+      opacity:.9;
+    }
+
+    .money-total strong{
+      display:block;
+      font-size:22px;
+      line-height:1.05;
+      font-weight:1000;
+      text-align:right;
+    }
+
+    .money-card{
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fff;
+      padding:12px;
+      margin:10px 0;
+    }
+
+    .money-card h3{
+      font-size:15px;
+      color:var(--navy);
+      margin:0 0 8px;
+    }
+
+    .money-list{
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+
+    .money-list li{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      padding:7px 0;
+      border-bottom:1px solid #edf3f6;
+      font-size:13px;
+    }
+
+    .money-list li:last-child{border-bottom:0}
+
+    .money-list b{
+      color:var(--navy);
+      text-align:right;
+      white-space:nowrap;
+    }
+
+    .money-note{
+      font-size:12px;
+      color:var(--muted);
+      margin:8px 0 0;
+    }
+
+    .cash-highlight{
+      color:var(--red);
+      font-weight:1000;
+    }
+
+    .stage-pre .callout{
+      background:#eef3f8!important;
+      border-left-color:#16345f!important;
+    }
+
+    .stage-arrival .callout{
+      background:var(--yellow-soft)!important;
+      border-left-color:var(--yellow)!important;
+    }
+
+    .stage-training .callout{
+      background:var(--blue-soft)!important;
+      border-left-color:var(--creverse)!important;
+    }
+
+    .stage-week2 .callout{
+      background:var(--green-soft)!important;
+      border-left-color:var(--green)!important;
+    }
+
+    .stage-arrival .callout b,
+    .stage-pre .callout b,
+    .stage-training .callout b,
+    .stage-week2 .callout b{
+      color:var(--navy);
+    }
+
+
+    /* Keeps the accommodation route card directly above the quick buttons. */
+    #route{
+      margin-bottom:0!important;
+    }
+
+    #route .route-note{
+      margin-bottom:0!important;
+    }
+
+    #route + .quick{
+      margin-top:8px!important;
+    }
+
+    @media print{
+      @page{size:A4;margin:8mm}
+
+      html,body{
+        width:210mm!important;
+        max-width:none!important;
+        margin:0!important;
+        padding:0!important;
+        background:#fff!important;
+        overflow:visible!important;
+        -webkit-print-color-adjust:exact;
+        print-color-adjust:exact;
+      }
+
+      body{
+        font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif!important;
+        font-size:9pt!important;
+        line-height:1.22!important;
+        color:#111!important;
+      }
+
+      .app{
+        display:block!important;
+        width:100%!important;
+        max-width:none!important;
+        min-height:0!important;
+        margin:0!important;
+        padding:0!important;
+        background:#fff!important;
+        box-shadow:none!important;
+        overflow:visible!important;
+      }
+
+      .hero{
+        width:100%!important;
+        max-width:none!important;
+        margin:0!important;
+        padding:6mm 6mm 4mm!important;
+        border-radius:0!important;
+        border:1px solid #cfd8dc!important;
+        border-bottom:4px solid var(--creverse)!important;
+        background:#fff!important;
+        color:#111!important;
+        break-inside:auto!important;
+        page-break-inside:auto!important;
+      }
+
+      .hero::after,
+      .sticky,
+      .quick,
+      .modal,
+      .image-lightbox,
+      .print-button,
+      .printable-guide{
+        display:none!important;
+      }
+
+      .brand{gap:7px!important}
+
+      .brand img{
+        width:28px!important;
+        height:28px!important;
+        padding:3px!important;
+        border:1px solid #ddd!important;
+        border-radius:7px!important;
+      }
+
+      .brand-text{
+        font-size:8pt!important;
+        color:#111!important;
+        line-height:1.05!important;
+      }
+
+      .hero h1{
+        font-size:18pt!important;
+        margin:4mm 0 1.5mm!important;
+        color:#111!important;
+        line-height:1.02!important;
+      }
+
+      .hero p{
+        font-size:9pt!important;
+        color:#111!important;
+        margin:0!important;
+      }
+
+      .updated{
+        margin-top:3mm!important;
+        padding:2px 6px!important;
+        border:1px solid #bbb!important;
+        background:#fff!important;
+        color:#111!important;
+        font-size:7.5pt!important;
+      }
+
+      .content{
+        width:100%!important;
+        max-width:none!important;
+        margin:0!important;
+        padding:0!important;
+        background:#fff!important;
+        overflow:visible!important;
+      }
+
+      .content>*{
+        margin-left:0!important;
+        margin-right:0!important;
+        max-width:none!important;
+      }
+
+      .card,
+      details.section{
+        display:block!important;
+        width:100%!important;
+        max-width:none!important;
+        margin:0!important;
+        padding:0!important;
+        border:1px solid #cfd8dc!important;
+        border-left-width:5px!important;
+        border-radius:0!important;
+        box-shadow:none!important;
+        background:#fff!important;
+        overflow:visible!important;
+        break-inside:auto!important;
+        page-break-inside:auto!important;
+      }
+
+      .card + .card,
+      .card + details.section,
+      details.section + .card,
+      details.section + details.section{
+        margin-top:0!important;
+      }
+
+      .card{padding:5px 7px!important}
+
+      .card h2,
+      details.section summary{
+        font-size:12pt!important;
+        line-height:1.08!important;
+        margin:0!important;
+        color:var(--navy)!important;
+      }
+
+      details.section summary{
+        display:block!important;
+        width:100%!important;
+        min-height:0!important;
+        padding:5px 7px!important;
+        background:#f8fbfc!important;
+        border-bottom:1px solid #e6eef2!important;
+        cursor:default!important;
+      }
+
+      details.section summary::after{display:none!important}
+
+      details.section .inside,
+      .inside{
+        display:block!important;
+        width:100%!important;
+        max-width:none!important;
+        padding:5px 7px!important;
+        border-top:0!important;
+        overflow:visible!important;
+        break-inside:auto!important;
+        page-break-inside:auto!important;
+      }
+
+      .helper{
+        font-size:8.4pt!important;
+        line-height:1.2!important;
+        margin:2px 0 4px!important;
+        color:#444!important;
+      }
+
+      .mini-label{
+        font-size:7.6pt!important;
+        margin:2px 3px 3px 0!important;
+        padding:2px 5px!important;
+        border-radius:0!important;
+      }
+
+      .callout,
+      .route-note,
+      .address-card,
+      .image-card,
+      .money-card,
+      .sub-money-box,
+      .money-total,
+      .step,
+      .route-card{
+        margin:3px 0!important;
+        padding:5px 6px!important;
+        border-radius:0!important;
+        box-shadow:none!important;
+        break-inside:auto!important;
+        page-break-inside:auto!important;
+      }
+
+      .callout{
+        font-size:8.6pt!important;
+        line-height:1.2!important;
+        border-left-width:4px!important;
+      }
+
+      .address-card .kor{
+        font-size:10.5pt!important;
+        line-height:1.18!important;
+        margin:2px 0!important;
+        word-break:keep-all!important;
+        overflow-wrap:anywhere!important;
+      }
+
+      .address-card p,
+      .small,
+      .caption{
+        font-size:7.8pt!important;
+        line-height:1.15!important;
+        margin:1px 0!important;
+      }
+
+      .routes{gap:0!important}
+
+      .route-card{border-width:1px!important}
+
+      .route-card strong{font-size:9pt!important}
+      .route-card span{font-size:7.8pt!important}
+
+      .timeline{
+        margin:3px 0 0 4px!important;
+        padding-left:13px!important;
+        border-left-width:2px!important;
+      }
+
+      .step{margin:0!important}
+
+      .step::before{
+        left:-20px!important;
+        top:8px!important;
+        width:8px!important;
+        height:8px!important;
+        border-width:2px!important;
+      }
+
+      .stage-tag{
+        font-size:7pt!important;
+        padding:1px 4px!important;
+        border-radius:0!important;
+      }
+
+      .step h3{
+        font-size:10pt!important;
+        margin:2px 0!important;
+      }
+
+      .step p{
+        font-size:8.4pt!important;
+        line-height:1.2!important;
+      }
+
+      .checklist{margin:2px 0!important}
+
+      .checklist li{
+        grid-template-columns:16px minmax(0,1fr)!important;
+        gap:5px!important;
+        padding:3px 0!important;
+        font-size:8.8pt!important;
+        line-height:1.18!important;
+        border-bottom:1px solid #edf3f6!important;
+        break-inside:auto!important;
+        page-break-inside:auto!important;
+      }
+
+      .check{
+        width:14px!important;
+        height:14px!important;
+        border-radius:3px!important;
+        font-size:7pt!important;
+      }
+
+      .asset-row{
+        grid-template-columns:24px 1fr!important;
+        gap:6px!important;
+        margin:3px 0!important;
+      }
+
+      .icon-bubble,
+      .app-icon{
+        width:24px!important;
+        height:24px!important;
+        border-radius:5px!important;
+        font-size:13px!important;
+      }
+
+      .asset-row strong{font-size:9pt!important}
+      .asset-row span{font-size:7.8pt!important}
+
+      .photo-grid,
+      .photo-grid.two{
+        display:grid!important;
+        grid-template-columns:1fr 1fr!important;
+        gap:4px!important;
+        margin:3px 0!important;
+      }
+
+      .image-card strong{
+        font-size:8.5pt!important;
+        margin-bottom:2px!important;
+      }
+
+      .guide-img,
+      img{
+        max-width:100%!important;
+        height:auto!important;
+        box-shadow:none!important;
+        border-radius:0!important;
+        cursor:default!important;
+      }
+
+      .guide-img{
+        max-height:45mm!important;
+        object-fit:contain!important;
+      }
+
+      .checklist li .guide-img{
+        margin-top:3px!important;
+        max-height:42mm!important;
+      }
+
+      .table{
+        width:100%!important;
+        table-layout:fixed!important;
+        border-collapse:collapse!important;
+        margin:3px 0!important;
+        font-size:8pt!important;
+        border-radius:0!important;
+        break-inside:auto!important;
+        page-break-inside:auto!important;
+      }
+
+      .table th{
+        padding:3px 4px!important;
+        font-size:7.7pt!important;
+        background:var(--navy)!important;
+        color:#fff!important;
+      }
+
+      .table td{
+        padding:3px 4px!important;
+        line-height:1.15!important;
+        border-bottom:1px solid #e7eef3!important;
+        vertical-align:top!important;
+      }
+
+      .table a{
+        padding:1px 3px!important;
+        border-radius:0!important;
+        font-size:7.5pt!important;
+        background:#fff!important;
+        border:0!important;
+        color:#111!important;
+        font-weight:700!important;
+      }
+
+      a[href]::after{content:""!important}
+
+      .money-summary{
+        gap:2px!important;
+        margin:3px 0!important;
+      }
+
+      .money-total{
+        display:block!important;
+        background:#fff!important;
+        color:#111!important;
+        border:1px solid var(--navy)!important;
+      }
+
+      .money-total span{font-size:8pt!important}
+
+      .money-total strong{
+        font-size:12pt!important;
+        text-align:left!important;
+      }
+
+      .money-card h3{
+        font-size:10pt!important;
+        margin:0 0 3px!important;
+      }
+
+      .money-list li{
+        font-size:8.4pt!important;
+        padding:2px 0!important;
+      }
+
+      .money-note{
+        font-size:7.8pt!important;
+        line-height:1.17!important;
+        margin:3px 0 0!important;
+      }
+
+      .footer{
+        margin:0!important;
+        padding:5px!important;
+        border-radius:0!important;
+        background:#fff!important;
+        color:#111!important;
+        border:1px solid #cfd8dc!important;
+        border-top:4px solid var(--creverse)!important;
+        font-size:10pt!important;
+      }
+
+      .route-a-only,
+      .route-b-only{
+        display:none!important;
+      }
+
+      body.route-a .route-a-only{
+        display:block!important;
+      }
+
+      body.route-b .route-b-only{
+        display:block!important;
+      }
+
+      body.route-a tr.route-a-only,
+      body.route-b tr.route-b-only{
+        display:table-row!important;
+      }
+
+      body.route-b .route-a-hide{
+        display:none!important;
+      }
+
+      .print-page{
+        break-after:page;
+        page-break-after:always;
+      }
+
+      .print-page:last-child{
+        break-after:auto;
+        page-break-after:auto;
+      }
+
+      .print-route-banner.route-a-only,
+      .print-route-banner.route-b-only{
+        display:none!important;
+      }
+
+      body.route-a .print-route-banner.route-a-only,
+      body.route-b .print-route-banner.route-b-only{
+        display:flex!important;
+      }
+
+      .cash-highlight{
+        color:#111!important;
+        font-weight:1000!important;
+      }
+
+      .money-list b{
+        white-space:normal;
+      }
+    }
+  </style>
+</head>
+
+<body class="route-a">
+  <div class="app">
+    <header class="hero">
+      <div class="brand">
+        <img src="./creverse-logo.png" alt="CREVERSE logo" onerror="this.onerror=null;this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAAAmklEQVR4Ae3ZMQ6DMAxAUYv7H9vBqpgbCkSZSHhHXgdxvFbJ4hxJpSUX9kMQQgghhBDCRPDVr6p8n1xuUAlknxkU4O86lIAD3P8AQB0qAAc4iCUpmG9QQQHdCqD9YaDT4eN1QAJquhsfoYFJVkHwhbmvFcTndAFM0JovACg6sCEYfBhZAQndCgD+X+BTU06/6qf1BAghhBBC+D+8AMxjJ2SQH+VcAAAAAElFTkSuQmCC';" />
+        <div class="brand-text">CREVERSE<br>Arrival & Onboarding Guide</div>
+      </div>
+      <h1>Arrival & Onboarding Guide</h1>
+      <p>for OFFLINE training instructors arriving in Korea and going to branch locations</p>
+      <div class="updated">Updated: 05.18.2026</div>
+    </header>
+
+    <main class="content">
+      <section class="card" id="route">
+        <h2>Your Accommodation Route</h2>
+
+        <p class="helper">
+          Your recruiter and placement manager will confirm which accommodation route applies to you.
+          <b><span style="color:#ff0000;">IMPORTANT</span></b>:
+          Your accommodations will vary depending on the branch.
+        </p>
+
+        <div class="routes">
+          <label class="route-card">
+            <input type="radio" name="route" value="a" checked>
+            <strong>A · Hotel for 2 weeks</strong>
+            <span>Week 1: HQ-booked hotel · Week 2: Remain at hotel</span>
+          </label>
+
+          <label class="route-card">
+            <input type="radio" name="route" value="b">
+            <strong>B · Hotel + Airbnb — eligible only</strong>
+            <span>Week 1: HQ-booked hotel · Week 2: Teacher-booked Airbnb</span>
+          </label>
+        </div>
+
+        <div class="route-note route-a-only">
+          <b>Your selected route:</b>
+          Stay at the HQ-booked hotel for Week 1 and 2.
+          <br><br>
+          If placed at Pyeongchon Chungdahm, Pyeongchon April, Junggye Chungdahm,
+          Bundang Chungdahm, or Bundang Sunae April, select <b>Option B</b>.
+        </div>
+
+        <div class="route-note route-b-only">
+          <b>Your selected route:</b>
+          Stay at the HQ-booked hotel for Week 1, then move to your teacher-booked Airbnb for Week 2.
+          Reserve Airbnb for 7 nights / 8 days.
+          Reimbursement limit: 500,000 KRW, paid in your first paycheck.
+          <br><br>
+          <b>Applies to the following branches ONLY:</b>
+          Pyeongchon Chungdahm, Pyeongchon April, Junggye Chungdahm,
+          Bundang Chungdahm, Bundang Sunae April.
+        </div>
+      </section>
+
+      <nav class="quick">
+        <a href="#arrival">I just landed</a>
+        <a href="#taxi">Show taxi card</a>
+        <a href="#hotel">Hotel check-in</a>
+        <a href="#contacts">Contact help</a>
+      </nav>
+
+      <details class="section stage-arrival" id="contacts" open>
+        <summary>Who to Contact When...</summary>
+        <div class="inside">
+          <span class="mini-label">Quick Contact Guide</span>
+          <p class="helper">Use this guide to decide who to contact during arrival, training, housing, and branch onboarding.</p>
+          <table class="table">
+            <tr><th>Situation</th><th>Person in charge</th></tr>
+            <tr><td>Hotel checkout issue</td><td>Placement Manager</td></tr>
+            <tr class="route-b-only"><td>Eligible Airbnb change</td><td>Placement Manager</td></tr>
+            <tr><td>Flight, receipt, or arrival question</td><td>Recruiter</td></tr>
+            <tr><td>Training schedule or Training Information Packet</td><td>Training Center</td></tr>
+            <tr><td>Training directions or training-related question</td><td>Training Center</td></tr>
+            <tr><td>Branch directions, housing search, realtor meeting, shadowing, or onboarding</td><td>Branch Staff</td></tr>
+            <tr><td>Emergency situation</td><td>Emergency Services / Foreigner Hotline</td></tr>
+          </table>
+          <div class="callout warning">
+            <b>Reminder:</b> Most communication with branch staff and managers will happen through KakaoTalk or email.
+            Set up KakaoTalk before departure and check both KakaoTalk and email regularly during training.
+          </div>
+        </div>
+      </details>
+
+      <section class="card stage-arrival" id="quick-card">
+        <h2>Quick Card / Emergency</h2>
+        <p class="helper">Save this section on your phone before departure.</p>
+        <div class="address-card">
+          <strong>Hotel</strong>
+          <div class="kor">서울특별시 강남구 봉은사로 139 (06122)</div>
+          <p>Premier Best Western Gangnam Seoul<br>139 Bongeunsa-ro, Gangnam-gu, Seoul 06122, Korea</p>
+        </div>
+        <table class="table">
+          <tr><th>Need</th><th>Contact / Details</th></tr>
+          <tr><td>Training Center</td><td><strong>4F, Juho Building</strong><br>27 Gomurae-ro 10-gil, Seocho-gu, Seoul</td></tr>
+          <tr><td>Training Team</td><td><strong>Email:</strong> training@creverse-fc.com<br><strong>Phone:</strong> 02-6420-8121 / 8122<br><strong>Phone:</strong> 02-2219-7459 / 7490 / 9409</td></tr>
+          <tr><td>Placement Manager · Tim Lee</td><td><strong>Email:</strong> timlee@creverse.com<br><strong>Phone:</strong> 02-6420-8072</td></tr>
+          <tr><td>Placement Manager · Fiorella Im</td><td><strong>Email:</strong> fiorellaim@creverse.com<br><strong>Phone:</strong> 02-6420-7000</td></tr>
+          <tr><td>Emergency Services</td><td><strong>112</strong><br>English support for emergency situations</td></tr>
+          <tr><td>Foreigner Hotline</td><td><strong>1330</strong><br>02-1330 from a cell phone</td></tr>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>Candidate Journey Overview</h2>
+        <p class="helper">A simple step-by-step overview to help you understand what happens first, next, and later.</p>
+        <div class="timeline">
+          <div class="step" style="--stage:#16345f">
+            <span class="stage-tag">01 · Pre-Departure</span>
+            <h3>Confirm your route</h3>
+            <p>Confirm your flight, save key information, prepare your laptop and phone, and only book Airbnb if your recruiter confirms you are eligible.</p>
+          </div>
+          <div class="step" style="--stage:#f6b321">
+            <span class="stage-tag">02 · Arrival Day</span>
+            <h3>Travel to the hotel</h3>
+            <p>Land at Incheon, purchase a SIM if needed, then travel to the Premier Best Western Gangnam and complete hotel check-in.</p>
+          </div>
+          <div class="step" style="--stage:#00aeb3">
+            <span class="stage-tag">03 · Week 1 Training</span>
+            <h3>Attend offline training</h3>
+            <p>Attend offline training at the Creverse Training Center and watch closely for emails from the Training Team.</p>
+          </div>
+          <div class="step" style="--stage:#16a06b">
+            <span class="stage-tag">04 · Week 2</span>
+            <h3>Housing & Branch</h3>
+            <p>Search for housing, meet branch or realtor contacts, and move to Airbnb only if your assigned route allows it.</p>
+          </div>
+        </div>
+        <div class="callout warning"><b>If anything changes,</b> tell your recruiter or placement manager as early as possible.</div>
+      </section>
+
+      <details class="section stage-pre" open>
+        <summary>Pre-Departure Checklist</summary>
+        <div class="inside">
+          <span class="mini-label">Stage 01 · Pre-Departure</span>
+          <ul class="checklist">
+            <li><span class="check">✓</span><span>Send your flight itinerary and receipt to your recruiter and placement manager for reimbursement purposes.</span></li>
+            <li><span class="check">✓</span><span>Prepare a mobile device and laptop. A Windows laptop is recommended when possible.</span></li>
+            <li><span class="check">✓</span><span>Download and set up KakaoTalk before departure.</span></li>
+            <li><span class="check">✓</span><span>Check with your local bank that your credit and debit cards are authorized for international use.</span></li>
+            <li><span class="check">✓</span><span>Download Naver Map and Papago Translator.</span></li>
+            <li><span class="check">✓</span><span>Prepare enough Korean won cash for arrival-period expenses. Recommended arrival cash amount: <strong>2,550,000 KRW</strong>.</span></li>
+            <li><span class="check">✓</span><span>Make sure you receive and understand the Training Information Packet before training week. Check your spam/junk folder if you do not see it.</span></li>
+            <li><span class="check">✓</span><span>Create your teacher’s profile at teachinkorea.com.</span></li>
+            <li><span class="check">✓</span><span>Print this guide before leaving your home country and keep it with your travel documents as a backup.</span></li>
+          </ul>
+
+          <button class="print-button" type="button" onclick="printGuide()">Print this guide</button>
+
+          <div class="money-summary" id="arrival-cash-budget">
+            <span class="mini-label">Estimated Arrival Cash Budget</span>
+            <div class="money-total">
+              <span>Recommended cash to have available when you arrive in Korea</span>
+              <strong>2,550,000 KRW</strong>
+            </div>
+            <div class="money-card">
+              <h3>Arrival Cash Breakdown</h3>
+              <ul class="money-list">
+                <li><span>a. Transport</span><b>100,000 KRW</b></li>
+                <li><span>b. Post-training</span><b>2,450,000 KRW</b></li>
+              </ul>
+              <div class="sub-money-box">
+                <strong>Post-training estimate includes:</strong>
+                <ul class="money-list">
+                  <li><span>Rent</span><b>700,000 KRW*</b></li>
+                  <li><span>Maintenance fee</span><b>150,000 KRW*</b></li>
+                  <li><span>Realtor’s fee</span><b>300,000 KRW*</b></li>
+                  <li><span>Daily expenses</span><b>1,000,000 KRW*</b></li>
+                  <li><span>Miscellaneous</span><b>300,000 KRW</b></li>
+                </ul>
+              </div>
+              <p class="money-note">
+                <b>Plan for 4+ weeks until your first pay.</b>
+                The arrival amount should be prepared <span class="cash-highlight">in cash in KRW</span>.
+                Miscellaneous may include medical exam fee, ARC application fee, and other early setup costs.
+                *Average amount for Seoul; actual costs may vary by location and personal spending.
+              </p>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="section stage-pre" open>
+        <summary>Useful Apps</summary>
+        <div class="inside">
+          <span class="mini-label">Stage 01 · Pre-Departure</span>
+          <p class="helper">Install these apps before departure so you are ready for communication, directions, and translation in Korea.</p>
+
+          <div class="asset-row">
+            <img class="app-icon" src="./app-kakaotalk.png" alt="KakaoTalk app icon" onerror="this.style.display='none';">
+            <div>
+              <strong>KakaoTalk · Messenger</strong>
+              <span>Primary communication app in Korea. Set up before departure if possible.</span>
+            </div>
+          </div>
+
+          <div class="asset-row">
+            <img class="app-icon" src="./app-naver-map.png" alt="Naver Map app icon" onerror="this.style.display='none';">
+            <div>
+              <strong>Naver Map · Directions</strong>
+              <span>Recommended for public transportation and walking routes in Korea.</span>
+            </div>
+          </div>
+
+          <div class="asset-row">
+            <img class="app-icon" src="./app-papago.png" alt="Papago app icon" onerror="this.style.display='none';">
+            <div>
+              <strong>Papago · Translator</strong>
+              <span>Helpful Korean–English translation app for daily life.</span>
+            </div>
+          </div>
+
+          <div class="callout"><b>Optional transit apps:</b> Kakao Metro and Kakao Bus may also be helpful for subway and bus route details.</div>
+        </div>
+      </details>
+
+      <details class="section stage-arrival" id="arrival" open>
+        <summary>Arrival Day at Incheon Airport</summary>
+        <div class="inside">
+          <span class="mini-label">Stage 02 · Arrival Day</span>
+          <ul class="checklist">
+            <li><span class="check">✓</span><span>Clear immigration and collect luggage.</span></li>
+            <li><span class="check">✓</span><span>Purchase a prepaid SIM card at the airport if you need immediate mobile data.</span></li>
+            <li><span class="check">✓</span><span>Choose transportation: taxi or Airport Bus 6703 to Eonju Station.</span></li>
+            <li><span class="check">✓</span><span>Travel directly to Premier Best Western Gangnam Seoul.</span></li>
+            <li><span class="check">✓</span><span>Check in as a Creverse instructor and notify your recruiter and placement manager if any issue occurs.</span></li>
+          </ul>
+          <div class="callout warning"><b>Recommended SIM purchase:</b> Once you leave the airport, prepaid SIM cards may be harder to find. Purchasing at Incheon Airport is recommended if you need mobile data immediately.</div>
+          <div class="callout warning"><b>Important taxi note:</b> Use Orange / White / Silver taxis ONLY. Do not take Black Deluxe taxis. Late-night rides after 10 PM may cost more.</div>
+        </div>
+      </details>
+
+      <details class="section stage-arrival">
+        <summary>Prepaid SIM Cards: What to Know</summary>
+        <div class="inside">
+          <span class="mini-label">Stage 02 · Arrival Day</span>
+          <p class="helper">Recommended if you need mobile data immediately after arriving at Incheon Airport. KT SIM cards are recommended because they are usually the cheapest option and service quality is good.</p>
+          <ul class="checklist">
+            <li><span class="check">✓</span><span>Prepaid SIM cards usually offer unlimited data.</span></li>
+            <li><span class="check">✓</span><span>You may not be able to make outgoing phone calls or send text messages.</span></li>
+            <li><span class="check">✓</span><span>You can receive phone calls and text messages.</span></li>
+            <li><span class="check">✓</span><span>Emergency calls work.</span></li>
+            <li><span class="check">✓</span><span>Ask at the counter if you need an outgoing-call plan; it may cost more.</span></li>
+          </ul>
+          <table class="table">
+            <tr><th>Typical 30-day plan prices</th><th>Notes</th></tr>
+            <tr><td>KT & LG U+</td><td>Usually around 65,000 KRW</td></tr>
+            <tr><td>SKT</td><td>Around 71,500 KRW</td></tr>
+          </table>
+          <div class="callout warning"><b>Prices may change.</b> Pay in KRW only.</div>
+
+          <div class="image-card">
+            <strong>KT airport counter locations</strong>
+            <a class="zoom-link" href="#img-sim-kt-t1"><img class="guide-img" src="./sim-kt-terminal-1.png" alt="KT Terminal 1 airport counter location map"></a>
+            <p class="caption">KT — Terminal 1 Arrival Floor</p>
+            <a class="zoom-link" href="#img-sim-kt-t2"><img class="guide-img" src="./sim-kt-terminal-2.png" alt="KT Terminal 2 airport counter location map"></a>
+            <p class="caption">KT — Terminal 2 Arrival Floor</p>
+            <div class="img-missing">Image not found. Place the image file in the same folder as this HTML using the filename shown in the image list below.</div>
+          </div>
+
+          <div class="image-card">
+            <strong>LG U+ airport counter locations</strong>
+            <a class="zoom-link" href="#img-sim-lg-uplus"><img class="guide-img" src="./sim-lg-uplus-counters.png" alt="LG U+ airport counter locations"></a>
+            <p class="caption">LG U+ — Terminal 1 / Terminal 2</p>
+          </div>
+
+          <div class="image-card">
+            <strong>SKT airport counter locations</strong>
+            <a class="zoom-link" href="#img-sim-skt"><img class="guide-img" src="./sim-skt-counters.png" alt="SKT airport counter locations"></a>
+            <p class="caption">SKT — Terminal 1 / Terminal 2</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="section stage-arrival" id="taxi" open>
+        <summary>Transportation Option 1: Taxi</summary>
+        <div class="inside">
+          <span class="mini-label">Stage 02 · Arrival Day</span>
+          <p class="helper">Use this if you prefer direct transportation to the hotel.</p>
+          <div class="address-card">
+            <strong>Hotel address to show the driver</strong>
+            <div class="kor">서울특별시 강남구 봉은사로 139 (06122)</div>
+            <p>Premier Best Western Gangnam Seoul</p>
+          </div>
+          <ul class="checklist">
+            <li><span class="check">✓</span><span>Expect higher rates after 10 PM.</span></li>
+            <li><span class="check">✓</span><span>Use regular Orange, White, or Silver taxis only.</span></li>
+            <li><span class="check">✓</span><span>The driver should assist with luggage loading and unloading.</span></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="section stage-arrival">
+        <summary>Transportation Option 2: Airport Bus 6703</summary>
+        <div class="inside">
+          <span class="mini-label">Stage 02 · Arrival Day</span>
+          <p class="helper">Incheon Airport → Eonju Station / Hotel Samjung → Walk to hotel.</p>
+          <table class="table">
+            <tr><th>Terminal</th><th>Bus stop</th></tr>
+            <tr><td>Terminal 1</td><td>1F, bus stop No. 3</td></tr>
+            <tr><td>Terminal 2</td><td>B1, bus stop No. 19</td></tr>
+          </table>
+          <div class="photo-grid">
+            <div class="image-card">
+              <strong>Terminal 1 · 1F, bus stop No. 3</strong>
+              <a class="zoom-link" href="#img-bus-t1"><img class="guide-img" src="./bus-terminal-1-stop-3.png" alt="Incheon Airport Terminal 1 bus stop map"></a>
+            </div>
+            <div class="image-card">
+              <strong>Terminal 2 · B1, bus stop No. 19</strong>
+              <a class="zoom-link" href="#img-bus-t2"><img class="guide-img" src="./bus-terminal-2-stop-19.png" alt="Incheon Airport Terminal 2 bus stop map"></a>
+            </div>
+          </div>
+          <div class="callout warning"><b>Route:</b> Incheon Airport → Airport Bus 6703 → Eonju Station / Hotel Samjung → 3-minute walk to Premier Best Western Gangnam Seoul.</div>
+        </div>
+      </details>
+
+      <details class="section stage-arrival" id="hotel" open>
+        <summary>Hotel Check-In</summary>
+        <div class="inside">
+          <span class="mini-label">Stage 02 · Arrival Day</span>
+          <ul class="checklist">
+            <li><span class="check">1</span><span>Enter the hotel and go to the reception desk.</span></li>
+            <li><span class="check">2</span><span>Inform the receptionist that you are a Creverse instructor.</span></li>
+            <li><span class="check">3</span><span>Provide your name.</span></li>
+            <li><span class="check">4</span><span>Receive your room number and key.</span></li>
+            <li><span class="check">5</span><span>Proceed to the elevator near the reception desk and go to your assigned floor.</span></li>
+          </ul>
+          <table class="table">
+            <tr><th>Hotel information</th><th>Details</th></tr>
+            <tr><td>English</td><td>139 Bongeunsa-ro, Gangnam-gu, Seoul 06122, Korea</td></tr>
+            <tr><td>Korean</td><td>서울특별시 강남구 봉은사로 139 (06122)</td></tr>
+            <tr><td>Room type</td><td>Superior Twin Room · 2 people in 1 room</td></tr>
+            <tr><td>Check-in</td><td>15:00 KST</td></tr>
+          </table>
+          <div class="photo-grid two">
+            <div class="image-card">
+              <strong>Hotel exterior</strong>
+              <a class="zoom-link" href="#img-hotel-exterior"><img class="guide-img" src="./hotel-exterior.png" alt="Premier Best Western Gangnam Seoul exterior"></a>
+            </div>
+            <div class="image-card">
+              <strong>Superior Twin Room</strong>
+              <a class="zoom-link" href="#img-hotel-room"><img class="guide-img" src="./hotel-room.png" alt="Premier Best Western Gangnam Superior Twin Room"></a>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="section stage-arrival">
+        <summary>Hotel Checkout Protocol</summary>
+        <div class="inside">
+          <span class="mini-label">Stage 02 · Arrival Day</span>
+          <p class="helper">Contact your placement manager before making any change.</p>
+          <ul class="checklist">
+            <li><span class="check">✓</span><span>There is an issue with your checkout date.</span></li>
+            <li><span class="check">✓</span><span>You wish to check out before the predetermined checkout date.</span></li>
+            <li><span class="check">✓</span><span>Your plan changes and you need to move into Airbnb.</span></li>
+            <li><span class="check">✓</span><span>You are dropping out during the training period.</span></li>
+            <li><span class="check">✓</span><span>You are unsure of your checkout date or protocol.</span></li>
+          </ul>
+          <div class="callout danger"><b style="color:var(--red)">Important liability notice:</b> You may be held liable for additional expenses caused by decisions made without consulting your placement manager.</div>
+        </div>
+      </details>
+
+      <details class="section stage-arrival">
+        <summary>Hotel Area Basics</summary>
+        <div class="inside">
+          <span class="mini-label">Stage 02 · Arrival Day</span>
+
+          <div class="asset-row">
+            <div class="icon-bubble">🏋️</div>
+            <div><strong>Gym</strong><span>Located on B1. Take the elevator to the B1 floor.</span></div>
+          </div>
+          <a class="zoom-link" href="#img-hotel-gym"><img class="guide-img" src="./hotel-gym.png" alt="Hotel gym on B1"></a>
+
+          <div class="asset-row">
+            <div class="icon-bubble">🏪</div>
+            <div><strong>Convenience Stores</strong><span>24-hour 7/11 and CU nearby. Exit the hotel, turn right, and walk approximately 200 meters.</span></div>
+          </div>
+          <a class="zoom-link" href="#img-hotel-convenience-store"><img class="guide-img" src="./hotel-convenience-store.png" alt="Convenience stores near hotel"></a>
+
+          <div class="asset-row">
+            <div class="icon-bubble">🧺</div>
+            <div><strong>Coin Laundry</strong><span>Exit the hotel, turn right, and walk down the stairs next to the hotel. 24-hour coin laundry; card only.</span></div>
+          </div>
+          <a class="zoom-link" href="#img-hotel-coin-laundry"><img class="guide-img" src="./hotel-coin-laundry.png" alt="Coin laundry near hotel"></a>
+
+          <div class="callout"><b>Tip:</b> buy water, snacks, and T-money / transit support items early so your training week starts smoothly.</div>
+        </div>
+      </details>
+
+      <details class="section stage-training" open>
+        <summary>Week 1: Offline Training Overview</summary>
+        <div class="inside">
+          <span class="mini-label">Stage 03 · Week 1 Training</span>
+          <ul class="checklist">
+            <li><span class="check">✓</span><span>Attend offline training at the Training Center during the first week.</span></li>
+            <li><span class="check">✓</span><span>Training Team will send the Training Information Packet the Thursday / Friday KST before training begins.</span></li>
+            <li><span class="check">✓</span><span>You will receive your training result email on Friday.</span></li>
+            <li><span class="check">✓</span><span>If your branch asks you to attend a branch or realtor meeting after training, notify HQ Recruiting as soon as possible.</span></li>
+          </ul>
+          <table class="table">
+            <tr><th>Training Center</th><th>Details</th></tr>
+            <tr>
+              <td>Address</td>
+              <td>
+                4F, Juho Building<br>
+                27 Gomurae-ro 10-gil, Seocho-gu, Seoul<br>
+                <a href="https://maps.app.goo.gl/iTa3yrFg3nojBsZ87" target="_blank" rel="noopener">Open in Google Maps</a><br>
+                <a href="https://naver.me/5W9Pc5VJ" target="_blank" rel="noopener">Open in Naver Map</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Training Team</td>
+              <td>training@creverse-fc.com<br>02-6420-8121 / 8122<br>02-2219-7459 / 7490 / 9409</td>
+            </tr>
+          </table>
+        </div>
+      </details>
+
+      <details class="section stage-training">
+        <summary>Hotel to Training Center Route</summary>
+        <div class="inside">
+          <span class="mini-label">Stage 03 · Week 1 Training</span>
+          <table class="table">
+            <tr><th>From</th><th>To</th></tr>
+            <tr>
+              <td>Premier Best Western Gangnam Seoul<br>139 Bongeunsa-ro, Gangnam-gu, Seoul 06122<br>서울특별시 강남구 봉은사로 139</td>
+              <td>Creverse Training Center<br>4F, Juho Building<br>27 Gomurae-ro 10-gil, Seocho-gu, Seoul</td>
+            </tr>
+          </table>
+
+          <div class="callout"><b>Route:</b> Premier Best Western Gangnam → Eonju Station → Express Bus Terminal → Banpo Mido Apt → Creverse Training Center.</div>
+
+          <ul class="checklist">
+            <li><span class="check">1</span><span>Walk to Eonju Station Exit 1. Exit the hotel, turn left, and walk about 5 minutes.<a class="zoom-link" href="#img-route-1"><img class="guide-img" src="./training-route-hotel-to-eonju.png" alt="Map from hotel to Eonju Station Exit 1"></a></span></li>
+            <li><span class="check">2</span><span>Take Subway Line 9 toward Sinnonhyeon. Get off at Express Bus Terminal Station, 3 stops away.<a class="zoom-link" href="#img-route-2"><img class="guide-img" src="./training-route-line-9.png" alt="Subway Line 9 route map from Eonju Station to Express Bus Terminal"></a></span></li>
+            <li><span class="check">3</span><span>Use Exit 8 and find the bus stop. Check bus stop numbers 22020 / 31018.<a class="zoom-link" href="#img-route-3"><img class="guide-img" src="./training-route-exit-8-street.png" alt="Street view after Express Bus Terminal Exit 8"></a></span></li>
+            <li><span class="check">4</span><span>Take bus 0411 or 3420 for 1 stop. Get off at Banpo Mido Apt.<a class="zoom-link" href="#img-route-3b"><img class="guide-img" src="./training-route-bus-stop.png" alt="Bus stop map near Express Bus Terminal"></a></span></li>
+            <li><span class="check">5</span><span>Walk straight, then turn right into the alley after Starbucks.<a class="zoom-link" href="#img-route-5"><img class="guide-img" src="./training-route-final-walk.png" alt="Final walking route to Creverse Training Center"></a></span></li>
+            <li><span class="check">6</span><span>Use the Training Center entrance and take the elevator to the 4th floor.<a class="zoom-link" href="#img-route-6"><img class="guide-img" src="./training-route-step6-building.png" alt="Creverse Training Center building entrance"></a></span></li>
+          </ul>
+
+          <div class="callout warning"><b>Tip:</b> Use Naver Map for Korean transit directions. Google Maps may be less reliable for subway/bus routing in Korea.</div>
+        </div>
+      </details>
+
+      <details class="section stage-week2" open>
+        <summary>Week 2: Housing Search & Branch Onboarding</summary>
+        <div class="inside">
+          <span class="mini-label">Stage 04 · Week 2</span>
+          <p class="helper">Your second week may include housing search, branch visits, or Airbnb transition only if eligible.</p>
+          <table class="table">
+            <tr><th>Route</th><th>Week 2 instructions</th></tr>
+            <tr class="route-a-only">
+              <td>A · Hotel for 2 weeks</td>
+              <td>Continue staying at the hotel while searching for housing with branch staff. Attend branch shadowing or onboarding if requested. Use Naver Map for directions.</td>
+            </tr>
+            <tr class="route-b-only">
+              <td>B · Hotel + Airbnb</td>
+              <td>Move to your Airbnb near the branch district after the first week. Search for housing with branch staff. Attend branch shadowing or onboarding if requested. Use Naver Map for directions.</td>
+            </tr>
+          </table>
+          <div class="callout warning route-a-only"><b>Prepare before Week 2:</b> Rent, maintenance fee, realtor fee, daily expenses, medical exam fee, and ARC application fee.</div>
+          <div class="callout warning route-b-only"><b>Prepare before Week 2:</b> Airbnb receipt, rent, maintenance fee, realtor fee, daily expenses, medical exam fee, and ARC application fee. Airbnb reimbursement limit is 500,000 KRW in your first paycheck.</div>
+        </div>
+      </details>
+
+      <details class="section stage-week2">
+        <summary>Branch Direction Links</summary>
+        <div class="inside">
+          <span class="mini-label">Stage 04 · Week 2</span>
+          <p class="helper">Use the link for your assigned branch. If your branch is not listed, contact branch staff for directions.</p>
+          <table class="table">
+            <tr><th>Branch</th><th>Naver Map Link</th></tr>
+            <tr><td>CDI Chungdahm</td><td><a href="https://naver.me/5FmWgAhH" target="_blank" rel="noopener">Open in Naver Map</a></td></tr>
+            <tr><td>April Chungdahm</td><td><a href="https://naver.me/Gn07YKf1" target="_blank" rel="noopener">Open in Naver Map</a></td></tr>
+            <tr><td>CDI Pyeongchon</td><td><a href="https://naver.me/FDnyqPtC" target="_blank" rel="noopener">Open in Naver Map</a></td></tr>
+            <tr><td>April Pyeongchon</td><td><a href="https://naver.me/GXA4eZgg" target="_blank" rel="noopener">Open in Naver Map</a></td></tr>
+            <tr><td>CDI Bundang</td><td><a href="https://naver.me/5ch9yRYX" target="_blank" rel="noopener">Open in Naver Map</a></td></tr>
+            <tr><td>April Bundang</td><td><a href="https://naver.me/5N14XGWF" target="_blank" rel="noopener">Open in Naver Map</a></td></tr>
+            <tr><td>CDI Junggye</td><td><a href="https://naver.me/GoD4HSar" target="_blank" rel="noopener">Open in Naver Map</a></td></tr>
+            <tr><td>CDI Mokdong</td><td><a href="https://naver.me/xFLwASwP" target="_blank" rel="noopener">Open in Naver Map</a></td></tr>
+            <tr><td>April Mokdong Gwangjang</td><td><a href="https://naver.me/5S9AXkRP" target="_blank" rel="noopener">Open in Naver Map</a></td></tr>
+            <tr><td>CDI Seocho</td><td><a href="https://naver.me/GmbE4BSJ" target="_blank" rel="noopener">Open in Naver Map</a></td></tr>
+            <tr><td>April Seocho</td><td><a href="https://naver.me/FMcevro9" target="_blank" rel="noopener">Open in Naver Map</a></td></tr>
+            <tr><td>CDI Daechi</td><td><a href="https://naver.me/x4FS3BJI" target="_blank" rel="noopener">Open in Naver Map</a></td></tr>
+            <tr><td>CDI Songpa</td><td><a href="https://naver.me/5vcEUvE7" target="_blank" rel="noopener">Open in Naver Map</a></td></tr>
+            <tr><td>i-Garten Jamsil</td><td><a href="https://naver.me/FsRLJHNt" target="_blank" rel="noopener">Open in Naver Map</a></td></tr>
+            <tr><td>April Sanbon</td><td><a href="https://naver.me/GYCf4Yri" target="_blank" rel="noopener">Open in Naver Map</a></td></tr>
+            <tr><td>April Olympic</td><td><a href="https://naver.me/GZZe8rZS" target="_blank" rel="noopener">Open in Naver Map</a></td></tr>
+          </table>
+        </div>
+      </details>
+
+      <div class="footer">Welcome to Korea!</div>
+    </main>
+
+    <nav class="sticky">
+      <a class="taxi" href="#quick-card">Quick Card / Emergency</a>
+      <a class="help" href="#contacts">Contact Help</a>
+    </nav>
+  </div>
+
+  <section class="printable-guide" aria-label="Printable arrival guide">
+    <div class="print-sheet">
+      <section class="print-page page-one">
+        <div class="print-hero-card">
+          <div class="print-brand">
+            <img src="./creverse-logo.png" alt="CREVERSE logo">
+            <span>CREVERSE Arrival & Onboarding Guide</span>
+          </div>
+          <div class="print-title">Branch Offline Training<br><span>Arrival Guide</span></div>
+          <div class="print-subtitle">Hotel 2 Weeks or Hotel 1 Week + Airbnb 1 Week · Updated 05.18.2026</div>
+        </div>
+
+        <div class="print-route-banner route-a-only">
+          <div class="route-letter">A</div>
+          <div><strong>Hotel for 2 weeks</strong><span>Week 1: HQ-booked hotel · Week 2: Remain at hotel</span></div>
+        </div>
+
+        <div class="print-route-banner route-b-only">
+          <div class="route-letter">B</div>
+          <div><strong>Hotel + Airbnb — eligible only</strong><span>Week 1: HQ-booked hotel · Week 2: Teacher-booked Airbnb · Reimbursement limit: 500,000 KRW</span></div>
+        </div>
+
+        <div class="print-icon-journey">
+          <div class="print-icon-stage">
+            <div class="print-icon-circle">
+              <svg viewBox="0 0 48 48" aria-hidden="true">
+                <rect x="10" y="6" width="22" height="34" rx="3"></rect>
+                <path d="M17 14h8"></path>
+                <path d="M17 20h8"></path>
+                <path d="M17 26h8"></path>
+                <path d="M36 14h4v20h-8"></path>
+              </svg>
+            </div>
+            <div class="stage-label">01</div>
+            <div class="stage-name">Pre-Departure</div>
+            <div class="stage-desc">Confirm route, flight, apps, laptop, and cash.</div>
+          </div>
+
+          <div class="print-icon-stage">
+            <div class="print-icon-circle">
+              <img src="./print-icon-arrival-day.png" alt="Arrival day icon" class="print-stage-icon-img">
+            </div>
+            <div class="stage-label">02</div>
+            <div class="stage-name">Arrival Day</div>
+            <div class="stage-desc">Land, buy SIM, travel to hotel, and check in.</div>
+          </div>
+
+          <div class="print-icon-stage">
+            <div class="print-icon-circle">
+              <svg viewBox="0 0 48 48" aria-hidden="true">
+                <rect x="8" y="10" width="22" height="14" rx="2"></rect>
+                <path d="M19 24v6"></path>
+                <path d="M14 30h10"></path>
+                <circle cx="38" cy="18" r="2"></circle>
+                <path d="M38 20v9"></path>
+                <path d="M34 33l4-4 4 4"></path>
+              </svg>
+            </div>
+            <div class="stage-label">03</div>
+            <div class="stage-name">Week 1 Training</div>
+            <div class="stage-desc">Attend offline training and monitor Training Team emails.</div>
+          </div>
+
+          <div class="print-icon-stage">
+            <div class="print-icon-circle">
+              <svg viewBox="0 0 48 48" aria-hidden="true">
+                <path d="M10 22l14-10 14 10"></path>
+                <path d="M14 20v16h20V20"></path>
+                <path d="M21 36V26h6v10"></path>
+                <circle cx="37" cy="13" r="5"></circle>
+                <path d="M35 13l2 2 4-4"></path>
+              </svg>
+            </div>
+            <div class="stage-label">04</div>
+            <div class="stage-name">Week 2</div>
+            <div class="stage-desc">Housing search, onboarding, or Airbnb transition.</div>
+          </div>
+        </div>
+
+        <div class="print-card-grid">
+          <div class="print-visual-card" style="--pcolor:#16345f">
+            <h2>Before You Leave Home</h2>
+            <ul>
+              <li>Send flight itinerary and receipt.</li>
+              <li>Prepare laptop and mobile device.</li>
+              <li>Set up KakaoTalk.</li>
+              <li>Download Naver Map and Papago.</li>
+              <li>Prepare 2,550,000 KRW arrival cash.</li>
+              <li>Receive and understand the Training Information Packet.</li>
+              <li>Create teacher profile.</li>
+            </ul>
+          </div>
+
+          <div class="print-visual-card" style="--pcolor:#f6b321">
+            <h2>Arrival Day Order</h2>
+            <ul>
+              <li>Clear immigration and collect luggage.</li>
+              <li>Buy prepaid SIM if needed.</li>
+              <li>Save hotel address in Korean.</li>
+              <li>Choose taxi or Airport Bus 6703.</li>
+              <li>Travel directly to the hotel.</li>
+              <li>Notify staff if an issue occurs.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="print-taxi-card">
+          <div class="taxi-label">Taxi / Hotel Quick Card</div>
+          <div class="taxi-korean">서울특별시 강남구 봉은사로 139 (06122)</div>
+          <div class="taxi-english">Premier Best Western Gangnam Seoul · 139 Bongeunsa-ro, Gangnam-gu, Seoul 06122, Korea</div>
+          <div class="taxi-notes">
+            <span>Orange / White / Silver taxis only</span>
+            <span>No Black Deluxe taxis</span>
+            <span>Check-in: 15:00 KST</span>
+            <span>Superior Twin · 2 people in 1 room</span>
+          </div>
+        </div>
+
+        <div class="print-card-grid bottom-row">
+          <div class="print-visual-card compact" style="--pcolor:#00aeb3">
+            <h2>Training Center</h2>
+            <p>4F, Juho Building<br>27 Gomurae-ro 10-gil, Seocho-gu, Seoul</p>
+            <p>training@creverse-fc.com<br>02-6420-8121 / 8122</p>
+          </div>
+
+          <div class="print-visual-card compact" style="--pcolor:#f6b321">
+            <h2>Quick Contacts</h2>
+            <p>Tim Lee: timlee@creverse.com · 02-6420-8072<br>Fiorella Im: fiorellaim@creverse.com · 02-6420-7000</p>
+            <p>Emergency: <strong>112</strong> · Foreigner Hotline: <strong>1330</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="print-page page-two">
+        <div class="print-page-title">Training Route + Week 2 Checklist</div>
+
+        <div class="print-route-steps">
+          <div class="route-step"><b>1</b><span>Walk to Eonju Station Exit 1. Exit the hotel, turn left, and walk about 5 minutes.</span></div>
+          <div class="route-step"><b>2</b><span>Take Subway Line 9 toward Sinnonhyeon. Get off at Express Bus Terminal Station.</span></div>
+          <div class="route-step"><b>3</b><span>Use Exit 8 and find the bus stop. Check bus stop numbers 22020 / 31018.</span></div>
+          <div class="route-step"><b>4</b><span>Take bus 0411 or 3420 for 1 stop. Get off at Banpo Mido Apt.</span></div>
+          <div class="route-step"><b>5</b><span>Walk straight, then turn right into the alley after Starbucks.</span></div>
+          <div class="route-step"><b>6</b><span>Use the Training Center entrance and take the elevator to the 4th floor.</span></div>
+        </div>
+
+        <div class="print-card-grid">
+          <div class="print-visual-card" style="--pcolor:#16a06b">
+            <h2>Week 2</h2>
+            <div class="route-a-only">
+              <p><strong>A · Hotel for 2 weeks:</strong> Continue staying at the hotel while searching for housing with branch staff.</p>
+            </div>
+            <div class="route-b-only">
+              <p><strong>B · Hotel + Airbnb:</strong> Move to your Airbnb near the branch district after Week 1 only if confirmed.</p>
+            </div>
+            <ul>
+              <li>Rent</li>
+              <li>Maintenance fee</li>
+              <li>Realtor fee</li>
+              <li>Daily expenses</li>
+              <li>Medical exam fee</li>
+              <li>ARC application fee</li>
+            </ul>
+          </div>
+
+          <div class="print-visual-card" style="--pcolor:#f6b321">
+            <h2>Who to Contact When...</h2>
+            <div class="contact-row"><strong>Hotel checkout issue</strong><span>Placement Manager</span></div>
+            <div class="contact-row route-b-only"><strong>Eligible Airbnb change</strong><span>Placement Manager</span></div>
+            <div class="contact-row"><strong>Flight / receipt / arrival question</strong><span>Recruiter</span></div>
+            <div class="contact-row"><strong>Training schedule or directions</strong><span>Training Center</span></div>
+            <div class="contact-row"><strong>Branch directions / housing / onboarding</strong><span>Branch Staff</span></div>
+            <div class="contact-row"><strong>Emergency</strong><span>112 / 1330</span></div>
+          </div>
+        </div>
+
+        <div class="print-final-card">
+          <h2>Final Arrival Checklist</h2>
+          <div class="final-checks">
+            <span>Send required receipts and itinerary.</span>
+            <span>Set up KakaoTalk before departure.</span>
+            <span>Print this guide before departure as a travel backup.</span>
+            <span>Save hotel, Training Center, branch, and eligible Airbnb addresses.</span>
+            <span>Prepare KRW cash for transportation and early living expenses.</span>
+            <span>Do not change checkout or accommodation plans without approval.</span>
+            <span>Contact recruiter and placement manager early if anything changes.</span>
+          </div>
+        </div>
+
+        <div class="print-footer">Welcome to Korea!</div>
+      </section>
+    </div>
+  </section>
+
+  <div id="img-sim-kt-t1" class="modal"><a class="close" href="#">×</a><img src="./sim-kt-terminal-1.png" alt="KT Terminal 1 airport counter location map"><div class="modal-caption">KT — Terminal 1 Arrival Floor</div></div>
+  <div id="img-sim-kt-t2" class="modal"><a class="close" href="#">×</a><img src="./sim-kt-terminal-2.png" alt="KT Terminal 2 airport counter location map"><div class="modal-caption">KT — Terminal 2 Arrival Floor</div></div>
+  <div id="img-sim-lg-uplus" class="modal"><a class="close" href="#">×</a><img src="./sim-lg-uplus-counters.png" alt="LG U+ airport counter locations"><div class="modal-caption">LG U+ airport counter locations</div></div>
+  <div id="img-sim-skt" class="modal"><a class="close" href="#">×</a><img src="./sim-skt-counters.png" alt="SKT airport counter locations"><div class="modal-caption">SKT airport counter locations</div></div>
+  <div id="img-bus-t1" class="modal"><a class="close" href="#">×</a><img src="./bus-terminal-1-stop-3.png" alt="Incheon Airport Terminal 1 bus stop map"><div class="modal-caption">Terminal 1 · 1F, bus stop No. 3</div></div>
+  <div id="img-bus-t2" class="modal"><a class="close" href="#">×</a><img src="./bus-terminal-2-stop-19.png" alt="Incheon Airport Terminal 2 bus stop map"><div class="modal-caption">Terminal 2 · B1, bus stop No. 19</div></div>
+  <div id="img-hotel-exterior" class="modal"><a class="close" href="#">×</a><img src="./hotel-exterior.png" alt="Premier Best Western Gangnam Seoul exterior"><div class="modal-caption">Hotel exterior</div></div>
+  <div id="img-hotel-room" class="modal"><a class="close" href="#">×</a><img src="./hotel-room.png" alt="Premier Best Western Gangnam Superior Twin Room"><div class="modal-caption">Superior Twin Room</div></div>
+  <div id="img-hotel-gym" class="modal"><a class="close" href="#">×</a><img src="./hotel-gym.png" alt="Hotel gym on B1"><div class="modal-caption">Hotel gym on B1</div></div>
+  <div id="img-hotel-convenience-store" class="modal"><a class="close" href="#">×</a><img src="./hotel-convenience-store.png" alt="Convenience stores near hotel"><div class="modal-caption">Convenience stores near hotel</div></div>
+  <div id="img-hotel-coin-laundry" class="modal"><a class="close" href="#">×</a><img src="./hotel-coin-laundry.png" alt="Coin laundry near hotel"><div class="modal-caption">Coin laundry near hotel</div></div>
+  <div id="img-route-1" class="modal"><a class="close" href="#">×</a><img src="./training-route-hotel-to-eonju.png" alt="Map from hotel to Eonju Station Exit 1"><div class="modal-caption">Step 1 · Hotel to Eonju Station Exit 1</div></div>
+  <div id="img-route-2" class="modal"><a class="close" href="#">×</a><img src="./training-route-line-9.png" alt="Subway Line 9 route map"><div class="modal-caption">Step 2 · Subway Line 9 to Express Bus Terminal</div></div>
+  <div id="img-route-3" class="modal"><a class="close" href="#">×</a><img src="./training-route-exit-8-street.png" alt="Street view after Express Bus Terminal Exit 8"><div class="modal-caption">Step 3 · After Exit 8</div></div>
+  <div id="img-route-3b" class="modal"><a class="close" href="#">×</a><img src="./training-route-bus-stop.png" alt="Bus stop map near Express Bus Terminal"><div class="modal-caption">Step 4 · Bus stop map</div></div>
+  <div id="img-route-5" class="modal"><a class="close" href="#">×</a><img src="./training-route-final-walk.png" alt="Final walking route to Creverse Training Center"><div class="modal-caption">Step 5 · Final walk to Training Center</div></div>
+  <div id="img-route-6" class="modal"><a class="close" href="#">×</a><img src="./training-route-step6-building.png" alt="Creverse Training Center building entrance"><div class="modal-caption">Step 6 · Training Center building entrance</div></div>
+
+  <script>
+    let printPreviouslyClosedSections = [];
+
+    function openAllSectionsForPrint(){
+      printPreviouslyClosedSections = [];
+      document.querySelectorAll('details.section').forEach(function(section){
+        if(!section.open){
+          printPreviouslyClosedSections.push(section);
+          section.open = true;
+        }
+      });
+    }
+
+    function restoreSectionsAfterPrint(){
+      printPreviouslyClosedSections.forEach(function(section){
+        section.open = false;
+      });
+      printPreviouslyClosedSections = [];
+    }
+
+    function printGuide(){
+      openAllSectionsForPrint();
+      window.print();
+    }
+
+    window.addEventListener('beforeprint', openAllSectionsForPrint);
+    window.addEventListener('afterprint', restoreSectionsAfterPrint);
+
+    function setAccommodationRoute(route){
+      document.body.classList.toggle('route-a', route === 'a');
+      document.body.classList.toggle('route-b', route === 'b');
+      localStorage.setItem('creverseAccommodationRoute', route);
+    }
+
+    document.querySelectorAll('input[name="route"]').forEach(function(input){
+      input.addEventListener('change', function(event){
+        setAccommodationRoute(event.target.value || (event.target.closest('label')?.textContent.includes('Airbnb') ? 'b' : 'a'));
+      });
+    });
+
+    const savedAccommodationRoute = 'a';
+    const savedAccommodationInput = document.querySelector('input[name="route"][value="' + savedAccommodationRoute + '"]') || document.querySelectorAll('input[name="route"]')[savedAccommodationRoute === 'b' ? 1 : 0];
+
+    if(savedAccommodationInput){
+      savedAccommodationInput.checked = true;
+      setAccommodationRoute(savedAccommodationRoute);
+    }
+
+    let lastScrollPosition = 0;
+
+    const lightbox = document.createElement('div');
+    lightbox.className = 'image-lightbox';
+    lightbox.innerHTML = '<button type="button" aria-label="Close image">×</button><img alt=""><div class="lightbox-caption"></div>';
+    document.body.appendChild(lightbox);
+
+    const lightboxImg = lightbox.querySelector('img');
+    const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+    const lightboxClose = lightbox.querySelector('button');
+
+    function openImageLightbox(img){
+      lastScrollPosition = window.scrollY || document.documentElement.scrollTop;
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || '';
+      lightboxCaption.textContent = img.alt || 'Image preview';
+      lightbox.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageLightbox(){
+      lightbox.classList.remove('is-open');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+      requestAnimationFrame(function(){
+        window.scrollTo({ top: lastScrollPosition, left: 0, behavior: 'auto' });
+      });
+    }
+
+    document.querySelectorAll('.zoom-link').forEach(function(link){
+      link.addEventListener('click', function(event){
+        event.preventDefault();
+        const img = link.querySelector('img');
+        if(img){
+          openImageLightbox(img);
+        }
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeImageLightbox);
+
+    lightbox.addEventListener('click', function(event){
+      if(event.target === lightbox){
+        closeImageLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', function(event){
+      if(event.key === 'Escape' && lightbox.classList.contains('is-open')){
+        closeImageLightbox();
+      }
+    });
+  </script>
+</body>
+</html>
